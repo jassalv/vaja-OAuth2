@@ -1,5 +1,6 @@
 package client.apiclient;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import java.util.Map;
 import static org.springframework.security.oauth2.client.web.reactive.function.client.ServletOAuth2AuthorizedClientExchangeFilterFunction.oauth2AuthorizedClient;
 
 @RestController
+@Slf4j
 public class RestApiClientController {
     private final WebClient webClient;
 
@@ -23,7 +25,7 @@ public class RestApiClientController {
     Map<String, String> resourceOwner(
             @RegisteredOAuth2AuthorizedClient("auth0") OAuth2AuthorizedClient authorizedClient) {
 
-        System.out.println(authorizedClient.getAccessToken().getTokenValue());
+        log.info(authorizedClient.getAccessToken().getTokenValue());
         String body = this.webClient
                 .get()
                 .attributes(oauth2AuthorizedClient(authorizedClient))
