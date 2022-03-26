@@ -21,7 +21,7 @@ public class RestApiClientController {
 
     @GetMapping("/auth0")
     Map<String, String> resourceOwner(
-            @RegisteredOAuth2AuthorizedClient("okta") OAuth2AuthorizedClient authorizedClient) {
+            @RegisteredOAuth2AuthorizedClient("auth0") OAuth2AuthorizedClient authorizedClient) {
 
         System.out.println(authorizedClient.getAccessToken().getTokenValue());
         String body = this.webClient

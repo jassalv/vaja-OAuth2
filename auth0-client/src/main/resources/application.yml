@@ -18,7 +18,7 @@ spring:
         oauth2:
             client:
                 registration:
-                    okta:
+                    auth0:
                         client-name: okta-auth-code
                         client-id: K9TjqgDF6sqLAtn0M3R5j1aoYkLIHsWm
                         client-secret: 4Aj_SOWVSD9UyBX1VxIN9i-x6e47sNp8QQfFIKUy1wThcK_kxV6bZG2MvhxOpUjl
@@ -29,7 +29,7 @@ spring:
                         authorization-grant-type: authorization_code
                         redirect-uri: https://localhost:8888/login/oauth2/code/auth0
                 provider:
-                    okta:
+                    auth0:
                         issuer-uri: "https://dev-u14yaemx.us.auth0.com/"
 
 server.ssl.key-store: classpath:jks/server-keystore.jks
