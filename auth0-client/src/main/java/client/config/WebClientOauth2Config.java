@@ -19,7 +19,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientOauth2Config {
 
-    @Value("${spring.resource-uri:http://localhost:18080/time}")
+    @Value("${spring.resource-uri:http://localhost:8080/time}")
     String resourceUri;
 
     @Bean
@@ -42,28 +42,4 @@ public class WebClientOauth2Config {
         return authorizedClientManager;
     }
 
-    // either enable the bean below or spring will create ClientRegistrationRepository based on the application
-    // properties/yml
-    // @Bean
-    public ClientRegistrationRepository clientRegistrationRepository() {
-        return new InMemoryClientRegistrationRepository(this.oktaClientRegistration());
-    }
-
-    private ClientRegistration oktaClientRegistration() {
-        return ClientRegistration.withRegistrationId("okta")
-                .clientId("0oa1pr1alclORk0g7357")
-                .clientSecret("5FNu9pvlU4oW1KCnqJV4LjhHeffj_ditgP1ZNlpX")
-                .clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)
-                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .redirectUri("http://localhost:8888/login/oauth2/code/okta")
-                .scope("openid", "offline_access", "accesstime") // api scopes requested
-                .authorizationUri("https://dev-563628.okta.com/oauth2/default/v1/authorize")
-                .tokenUri("https://dev-563628.okta.com/oauth2/default/v1/token")
-                .userInfoUri("https://dev-563628.okta.com/oauth2/default/v1/userinfo")
-                .userNameAttributeName(IdTokenClaimNames.SUB)
-                .issuerUri("https://dev-563628.okta.com/oauth2/default")
-                .jwkSetUri("https://dev-563628.okta.com/oauth2/default/v1/keys")
-                .clientName("Okta")
-                .build();
-    }
 }

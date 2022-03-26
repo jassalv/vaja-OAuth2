@@ -19,10 +19,11 @@ public class RestApiClientController {
         this.webClient = webClient;
     }
 
-    @GetMapping("/client/ac")
+    @GetMapping("/auth0")
     Map<String, String> resourceOwner(
             @RegisteredOAuth2AuthorizedClient("okta") OAuth2AuthorizedClient authorizedClient) {
 
+        System.out.println(authorizedClient.getAccessToken().getTokenValue());
         String body = this.webClient
                 .get()
                 .attributes(oauth2AuthorizedClient(authorizedClient))
@@ -35,4 +36,5 @@ public class RestApiClientController {
         model.put("refreshToken", authorizedClient.getRefreshToken().getTokenValue());
         return model;
     }
+
 }

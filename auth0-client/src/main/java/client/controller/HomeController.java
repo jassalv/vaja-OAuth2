@@ -9,6 +9,6 @@ public class HomeController {
 
     @GetMapping("/")
     public RedirectView home() {
-        return new RedirectView("/client/ac");
+        return new RedirectView("/auth0");
     }
 }
