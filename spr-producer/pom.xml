@@ -11,7 +11,7 @@
   <groupId>spr-producer</groupId>
   <artifactId>spr-producer</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>avro-producer</name>
+  <name>spr-producer</name>
   <description>Demo project for Spring Boot</description>
 
   <properties>

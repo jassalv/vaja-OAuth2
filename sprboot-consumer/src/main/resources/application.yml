@@ -14,9 +14,9 @@ spring:
         specific.avro.reader: true
         interceptor.classes: io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
 
-
+#
 #kafka:
 #  bootstrap-servers: localhost:29092
 #  topic:
-#    name: order-events
+#    name: order1
 #    consumer-group: neworders-cg7

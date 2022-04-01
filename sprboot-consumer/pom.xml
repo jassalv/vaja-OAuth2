@@ -11,7 +11,7 @@
   <groupId>sprboot-consumer</groupId>
   <artifactId>sprboot-consumer</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>boca-kafka-examples</name>
+  <name>spr-consumer</name>
   <description>Demo project for Spring Boot</description>
 
   <properties>
