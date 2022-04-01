@@ -1,0 +1,23 @@
+server:
+  port: 0
+
+logging:
+  level:
+    ROOT: ERROR
+    com.reactivestax: DEBUG
+    org.springframework: ERROR
+    org.springframework.kafka: DEBUG
+    io.confluent: DEBUG
+pattern:
+  console: "%d %-5level %logger : %msg%n"
+
+spring:
+  kafka:
+    properties:
+      bootstrap.servers: localhost:29092
+      schema.registry.url: http://localhost:8081
+    producer:
+      acks: all
+      key-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      retries: 0
